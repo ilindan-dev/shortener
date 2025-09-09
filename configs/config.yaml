@@ -1,0 +1,16 @@
+# Application-wide settings for the Shortener service
+logger:
+  level: "debug"
+
+http:
+  port: ":8080"
+  gin_mode: "debug" # Use "release" for production
+  base_url: "http://localhost:8080" # The base URL used to construct short links
+
+postgres:
+  pool:
+    max_open_conns: 15
+    max_idle_conns: 5
+    conn_max_lifetime: "10m"
+
+
