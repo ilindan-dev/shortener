@@ -1,4 +1,4 @@
-package generator
+package base62
 
 import (
 	"strings"
