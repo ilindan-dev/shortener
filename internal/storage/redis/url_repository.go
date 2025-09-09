@@ -72,10 +72,3 @@ func (r *CachedURLRepository) GetByShortCode(ctx context.Context, shortCode stri
 
 	return dbURL, nil
 }
-
-// GetAnalyticsByShortCode retrieves analytics directly from the primary repository.
-// Analytics data is often too volatile or large to be cached effectively this way.
-func (r *CachedURLRepository) GetAnalyticsByShortCode(ctx context.Context, shortCode string) (*model.AnalyticsView, error) {
-	r.logger.Info().Str("short_code", shortCode).Msg("Fetching analytics, bypassing cache")
-	return r.primaryRepo.GetAnalyticsByShortCode(ctx, shortCode)
-}
